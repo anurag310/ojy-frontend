@@ -1,25 +1,40 @@
-import './App.css';
+
+
+import React from 'react';
 import {
-  BrowserRouter,
+  BrowserRouter as Router,
   Routes,
   Route,
-} from "react-router-dom";
-import SignupPage from './pages/Signup';
+} from 'react-router-dom';
 import LoginPage from './pages/Login';
-
+import SignupPage from './pages/Signup';
+import DashboardPage from './pages/Dashboard'; // Import DashboardPage component
+import Sidebar from './Sidebar'; // Import Sidebar component
+import HomePage from './pages/Home';
+import AboutPage from './pages/About';
+import ContactPage from './pages/Contact';
+import LogOutPage from './pages/logOut';
 
 function App() {
   return (
-    <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-    <div className="max-w-md w-full space-y-8">
-     <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<LoginPage/>} />
-            <Route path="/signup" element={<SignupPage/>} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  </div>
+    <Router>
+      <div className="flex h-screen">
+        <Sidebar />
+        <div className="flex-1">
+          <div className="min-h-full py-12 px-4 sm:px-6 lg:px-8">
+            <Routes>
+              <Route path="/" element={<LoginPage />} />
+              <Route path="/signup" element={<SignupPage />} />
+              <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/logout" element={<LogOutPage />} />
+            </Routes>
+          </div>
+        </div>
+      </div>
+    </Router>
   );
 }
 

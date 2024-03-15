@@ -15,10 +15,7 @@ export default function Login(){
         setLoginState({...loginState,[e.target.id]:e.target.value})
     }
 
-    // const handleSubmit=(e)=>{
-    //     e.preventDefault();
-    //     authenticateUser();
-    // }
+    
 
     //Handle Login API Integration here
     const handleSubmit = (e) => {
